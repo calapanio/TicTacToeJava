@@ -25,6 +25,7 @@ public class TicTacToe extends Application {
         Pane masterPane = new Pane();
         Label title = new Label();
         Label turnLabel = new Label();
+        Label winLabel = new Label();
         VBox vbox1 = new VBox();
         HBox display = new HBox();
         HBox hBox1 = new HBox();
@@ -95,67 +96,74 @@ public class TicTacToe extends Application {
 
         button1.setOnAction(actionEvent ->  {
             if(!Objects.equals(button1.getText(), "O") && !Objects.equals(button1.getText(), "X")){
-                button1.setText(player.get(0));
+                button1.setText(player.get(0) + " button 1");
                 turnLabel.setText("It is now " + player.get(1) + "'s turn");
+                //if(winCheck(button1, button2, button3) || winCheck(button1, button4, button7)){
+                    //turnLabel.setText(player.get(0) + " is the winner!");
+                //}
                 Collections.swap(player, 0, 1);
             }
         });
         button2.setOnAction(actionEvent ->  {
             if(!Objects.equals(button2.getText(), "O") && !Objects.equals(button2.getText(), "X")){
-                button2.setText(player.get(0));
+                button2.setText(player.get(0) + " button 2");
                 turnLabel.setText("It is now " + player.get(1) + "'s turn");
                 Collections.swap(player, 0, 1);
             }
         });
         button3.setOnAction(actionEvent ->  {
             if(!Objects.equals(button3.getText(), "O") && !Objects.equals(button3.getText(), "X")){
-                button3.setText(player.get(0));
+                button3.setText(player.get(0) + " button 3");
                 turnLabel.setText("It is now " + player.get(1) + "'s turn");
                 Collections.swap(player, 0, 1);
             }
         });
         button4.setOnAction(actionEvent ->  {
             if(!Objects.equals(button4.getText(), "O") && !Objects.equals(button4.getText(), "X")){
-                button4.setText(player.get(0));
+                button4.setText(player.get(0) + " button 4");
                 turnLabel.setText("It is now " + player.get(1) + "'s turn");
                 Collections.swap(player, 0, 1);
             }
         });
         button5.setOnAction(actionEvent ->  {
             if(!Objects.equals(button5.getText(), "O") && !Objects.equals(button5.getText(), "X")){
-                button5.setText(player.get(0));
+                button5.setText(player.get(0) + " button 5");
                 turnLabel.setText("It is now " + player.get(1) + "'s turn");
                 Collections.swap(player, 0, 1);
             }
         });
         button6.setOnAction(actionEvent ->  {
             if(!Objects.equals(button6.getText(), "O") && !Objects.equals(button6.getText(), "X")){
-                button6.setText(player.get(0));
+                button6.setText(player.get(0) + " button 6");
                 turnLabel.setText("It is now " + player.get(1) + "'s turn");
                 Collections.swap(player, 0, 1);
             }
         });
         button7.setOnAction(actionEvent ->  {
             if(!Objects.equals(button7.getText(), "O") && !Objects.equals(button7.getText(), "X")){
-                button7.setText(player.get(0));
+                button7.setText(player.get(0) + " button 7");
                 turnLabel.setText("It is now " + player.get(1) + "'s turn");
                 Collections.swap(player, 0, 1);
             }
         });
         button8.setOnAction(actionEvent ->  {
             if(!Objects.equals(button8.getText(), "O") && !Objects.equals(button8.getText(), "X")){
-                button8.setText(player.get(0));
+                button8.setText(player.get(0) + " button 8");
                 turnLabel.setText("It is now " + player.get(1) + "'s turn");
                 Collections.swap(player, 0, 1);
             }
         });
         button9.setOnAction(actionEvent ->  {
             if(!Objects.equals(button9.getText(), "O") && !Objects.equals(button9.getText(), "X")){
-                button9.setText(player.get(0));
+                button9.setText(player.get(0) + " button 9");
                 turnLabel.setText("It is now " + player.get(1) + "'s turn");
                 Collections.swap(player, 0, 1);
             }
         });
+    }
+
+    public static boolean winCheck(Button button1, Button button2, Button button3){
+        return button1.getText().equals(button2.getText()) && button2.getText().equals(button3.getText());
     }
 
     public static void main(String[] args) {

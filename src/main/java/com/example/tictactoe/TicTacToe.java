@@ -33,7 +33,9 @@ public class TicTacToe extends Application {
         Pane masterPane = new Pane();
         Label title = new Label();
         Label turnLabel = new Label();
+        //HBox's go in VBox
         VBox vbox1 = new VBox();
+        //buttons go in HBox's
         HBox display = new HBox();
         HBox hBox1 = new HBox();
         HBox hBox2 = new HBox();
@@ -98,8 +100,9 @@ public class TicTacToe extends Application {
         button9.setFont(fontForLetter);
 
 
-        //
+        //this button acts as a reset that resets the board
         button10.setText("Reset");
+        //buttons go into HBox's and HBox's go into VBox which is displayed
         pane4.getChildren().setAll(button10);
         hBox1.getChildren().setAll(pane1, button1, button2, button3);
         hBox2.getChildren().setAll(pane2, button4, button5, button6);
@@ -113,14 +116,16 @@ public class TicTacToe extends Application {
         stage.setScene(scene);
         stage.show();
 
+        //List of X and O that alternates between button presses
         ArrayList<String> player = new ArrayList<>();
         player.add("X");
         player.add("O");
 
-
+        //sets font size for turnLabel and says whose turn it is
         turnLabel.setFont(fontForLabel);
         turnLabel.setText("It is now " + player.get(0) + "'s turn");
 
+        //buttons one through nine are the game buttons
         button1.setOnAction(actionEvent ->  {
             if(!Objects.equals(button1.getText(), "O") && !Objects.equals(button1.getText(), "X") && !gameOver){
                 button1.setText(player.get(0));
@@ -229,6 +234,7 @@ public class TicTacToe extends Application {
                 }
             }
         });
+        //button10 resets all buttons, all buttons have different spacing to not confuse winCheck
         button10.setOnAction(actionEvent -> {
             button1.setText("");
             button2.setText(" ");
@@ -243,7 +249,7 @@ public class TicTacToe extends Application {
             gameOver = false;
         });
     }
-
+    //checks to see if three buttons are equal to each other
     public static boolean winCheck(Button button1, Button button2, Button button3){
         return button1.getText().equals(button2.getText()) && button2.getText().equals(button3.getText());
     }

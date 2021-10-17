@@ -27,6 +27,8 @@ import java.util.Objects;
 
 public class TicTacToe extends Application {
     public  static boolean gameOver;
+    public static ArrayList<String> player = new ArrayList<>();
+    public static ArrayList<Boolean> check = new ArrayList<>();
     @Override
     public void start(Stage stage){
         //declared all the needed instantiations
@@ -55,7 +57,7 @@ public class TicTacToe extends Application {
         pane2.setPrefHeight(200);
         pane3.setPrefWidth(500);
         pane3.setPrefHeight(200);
-        pane4.setPrefWidth(650);
+        pane4.setPrefWidth(625);
         pane4.setPrefHeight(200);
 
         //these buttons act as the board
@@ -117,9 +119,9 @@ public class TicTacToe extends Application {
         stage.show();
 
         //List of X and O that alternates between button presses
-        ArrayList<String> player = new ArrayList<>();
         player.add("X");
         player.add("O");
+
 
         //sets font size for turnLabel and says whose turn it is
         turnLabel.setFont(fontForLabel);
@@ -132,9 +134,12 @@ public class TicTacToe extends Application {
                 if(winCheck(button1, button2, button3) || winCheck(button1, button4, button7) || winCheck(button1, button5, button9)){
                     turnLabel.setText(player.get(0) + " is the winner!");
                     gameOver = true;
+                }else if(check.size() == 8){//checks for tie
+                    turnLabel.setText("Its a tie");
                 }else{
                     turnLabel.setText("It is now " + player.get(1) + "'s turn");
                     Collections.swap(player, 0, 1);
+                    check.add(true);
                 }
             }
         });
@@ -144,9 +149,12 @@ public class TicTacToe extends Application {
                 if(winCheck(button1, button2, button3) || winCheck(button2, button5, button8)){
                     turnLabel.setText(player.get(0) + " is the winner!");
                     gameOver = true;
+                }else if(check.size() == 8){
+                    turnLabel.setText("Its a tie");
                 }else{
                     turnLabel.setText("It is now " + player.get(1) + "'s turn");
                     Collections.swap(player, 0, 1);
+                    check.add(true);
                 }
             }
         });
@@ -156,9 +164,12 @@ public class TicTacToe extends Application {
                 if(winCheck(button1, button2, button3) || winCheck(button3, button6, button9) || winCheck(button3, button5, button7)){
                     turnLabel.setText(player.get(0) + " is the winner!");
                     gameOver = true;
+                }else if(check.size() == 8){
+                    turnLabel.setText("Its a tie");
                 }else{
                     turnLabel.setText("It is now " + player.get(1) + "'s turn");
                     Collections.swap(player, 0, 1);
+                    check.add(true);
                 }
             }
         });
@@ -168,9 +179,12 @@ public class TicTacToe extends Application {
                 if(winCheck(button4, button5, button6) || winCheck(button4, button1, button7)){
                     turnLabel.setText(player.get(0) + " is the winner!");
                     gameOver = true;
+                }else if(check.size() == 8){
+                    turnLabel.setText("Its a tie");
                 }else{
                     turnLabel.setText("It is now " + player.get(1) + "'s turn");
                     Collections.swap(player, 0, 1);
+                    check.add(true);
                 }
             }
         });
@@ -180,9 +194,12 @@ public class TicTacToe extends Application {
                 if(winCheck(button4, button5, button6) || winCheck(button2, button5, button8)){
                     turnLabel.setText(player.get(0) + " is the winner!");
                     gameOver = true;
+                }else if(check.size() == 8){
+                    turnLabel.setText("Its a tie");
                 }else{
                     turnLabel.setText("It is now " + player.get(1) + "'s turn");
                     Collections.swap(player, 0, 1);
+                    check.add(true);
                 }
             }
         });
@@ -192,9 +209,12 @@ public class TicTacToe extends Application {
                 if(winCheck(button4, button5, button6) || winCheck(button6, button3, button9)){
                     turnLabel.setText(player.get(0) + " is the winner!");
                     gameOver = true;
+                }else if(check.size() == 8){
+                    turnLabel.setText("Its a tie");
                 }else{
                     turnLabel.setText("It is now " + player.get(1) + "'s turn");
                     Collections.swap(player, 0, 1);
+                    check.add(true);
                 }
             }
         });
@@ -204,9 +224,12 @@ public class TicTacToe extends Application {
                 if(winCheck(button7, button8, button9) || winCheck(button1, button4, button7) || winCheck(button7, button5, button3)){
                     turnLabel.setText(player.get(0) + " is the winner!");
                     gameOver = true;
+                }else if(check.size() == 8){
+                    turnLabel.setText("Its a tie");
                 }else{
                     turnLabel.setText("It is now " + player.get(1) + "'s turn");
                     Collections.swap(player, 0, 1);
+                    check.add(true);
                 }
             }
         });
@@ -216,9 +239,12 @@ public class TicTacToe extends Application {
                 if(winCheck(button7, button8, button9) || winCheck(button8, button5, button2)){
                     turnLabel.setText(player.get(0) + " is the winner!");
                     gameOver = true;
+                }else if(check.size() == 8){
+                    turnLabel.setText("Its a tie");
                 }else{
                     turnLabel.setText("It is now " + player.get(1) + "'s turn");
                     Collections.swap(player, 0, 1);
+                    check.add(true);
                 }
             }
         });
@@ -228,9 +254,12 @@ public class TicTacToe extends Application {
                 if(winCheck(button7, button8, button9) || winCheck(button3, button6, button9) || winCheck(button9, button5, button1)){
                     turnLabel.setText(player.get(0) + " is the winner!");
                     gameOver = true;
+                }else if(check.size() == 8){
+                    turnLabel.setText("Its a tie");
                 }else{
                     turnLabel.setText("It is now " + player.get(1) + "'s turn");
                     Collections.swap(player, 0, 1);
+                    check.add(true);
                 }
             }
         });
@@ -247,6 +276,7 @@ public class TicTacToe extends Application {
             button9.setText("        ");
             turnLabel.setText("It is now " + player.get(0) + "'s turn");
             gameOver = false;
+            check.clear();
         });
     }
     //checks to see if three buttons are equal to each other
